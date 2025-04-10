@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel Tentang Scrap</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #003366;
+      margin-bottom: 20px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Artikel Seputar Scrap</h1>
+    <p>Pengetahuan dasar tentang dunia scrap untuk industri modern</p>
+  </header>
+
+  <section>
+    <h2>Apa Itu Scrap?</h2>
+    <p>
+      Scrap adalah sisa material dari proses produksi atau barang bekas yang masih memiliki nilai ekonomi.
+      Contohnya seperti potongan logam, kabel, aluminium bekas, dan lainnya yang dapat dijual kembali
+      untuk didaur ulang atau digunakan dalam produksi lain. Dalam dunia industri, scrap menjadi sumber bahan baku alternatif
+      yang efisien dan ramah lingkungan.
+    </p>
+  </section>
+
+  <section>
+    <h2>Manfaat Jual Beli Scrap</h2>
+    <p>
+      Kegiatan jual beli scrap memberikan banyak manfaat, baik dari sisi ekonomi maupun lingkungan.
+      Secara ekonomi, perusahaan bisa mendapatkan pemasukan tambahan dari menjual limbah produksi.
+      Sementara itu, secara lingkungan, scrap yang dikelola dengan baik mengurangi limbah yang mencemari lingkungan
+      dan mendukung sistem ekonomi sirkular.
+    </p>
+  </section>
+
+  <section>
+    <h2>Jenis-Jenis Scrap yang Paling Dicari</h2>
+    <p>
+      Beberapa jenis scrap yang paling umum dan bernilai tinggi antara lain:
+    </p>
+    <ul>
+      <li>Scrap besi dan baja</li>
+      <li>Aluminium bekas</li>
+      <li>Tembaga dan kabel tembaga</li>
+      <li>Kuningan dan stainless steel</li>
+    </ul>
+    <p>
+      Harga dari masing-masing jenis scrap bisa berbeda tergantung kondisi pasar dan tingkat kemurniannya.
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 PT. Batam Samudera Pase. All rights reserved.
+  </footer>
+
+</body>
+</html>
