@@ -5,64 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Batam Samudera Pase</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background-color: #003366; color: white; text-align: center; padding: 40px 20px; }
+    header img { max-height: 120px; }
+    nav { background-color: #005599; text-align: center; padding: 10px; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; }
+    section { padding: 40px 20px; max-width: 900px; margin: auto; }
+    .cta { background-color: #0077cc; color: white; text-align: center; padding: 30px 20px; }
+    .cta a { background-color: #ffffff; color: #0077cc; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; }
+    footer { background-color: #003366; color: white; text-align: center; padding: 20px; }
+    .image-gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .image-gallery img { max-width: 250px; border-radius: 10px; }
+    @media (max-width: 600px) {
+      nav a { display: block; margin: 10px 0; }
+      .image-gallery { flex-direction: column; align-items: center; }
     }
-    header {
-      background-color: #003366;
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
       color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header img {
-      max-height: 120px;
-    }
-    nav {
-      background-color: #005599;
-      text-align: center;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 24px;
       text-decoration: none;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .cta {
-      background-color: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-    }
-    .cta a {
-      background-color: #ffffff;
-      color: #0077cc;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-    }
-    footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .image-gallery img {
-      max-width: 250px;
-      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 999;
     }
   </style>
 </head>
@@ -118,11 +87,38 @@
     <p>Alamat: Kavling Nongsa, Sambau, Batam</p>
     <p>Telepon: <a href="tel:+628527474747474">0852-7474-7474</a></p>
     <p>Email: <a href="mailto:alamin.samudera@gmail.com">alamin.samudera@gmail.com</a></p>
+
+    <h3>Kirim Pesan</h3>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <label>Nama:</label><br>
+      <input type="text" name="name" required style="width: 100%; padding: 10px;"><br><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required style="width: 100%; padding: 10px;"><br><br>
+      <label>Pesan:</label><br>
+      <textarea name="message" rows="5" required style="width: 100%; padding: 10px;"></textarea><br><br>
+      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none;">
+        Kirim
+      </button>
+    </form>
+
+    <h3>Lokasi Kami</h3>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0717407613914!2d104.112261!3d1.1218661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3df8e93de14f%3A0x25f7e55811f89f1d!2sKavling%20Nongsa%2C%20Sambau%2C%20Batam!5e0!3m2!1sid!2sid!4v1712746950000!5m2!1sid!2sid" 
+      width="100%" 
+      height="300" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
   </section>
 
   <footer>
     &copy; 2025 PT. Batam Samudera Pase. All rights reserved.
   </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/628527474747474" class="whatsapp-button" target="_blank" title="Hubungi kami via WhatsApp">💬</a>
 
 </body>
 </html>
