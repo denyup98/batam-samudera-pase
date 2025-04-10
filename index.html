@@ -2,43 +2,132 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Batam Samudera Pase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PT. Batam Samudera Pase</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background-color: #003366; color: white; text-align: center; padding: 40px 20px; }
-    header img { max-height: 120px; }
-    nav { background-color: #005599; text-align: center; padding: 10px; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    .cta { background-color: #0077cc; color: white; text-align: center; padding: 30px 20px; }
-    .cta a { background-color: #ffffff; color: #0077cc; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; }
-    footer { background-color: #003366; color: white; text-align: center; padding: 20px; }
-    .image-gallery { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
-    .image-gallery img { max-width: 250px; border-radius: 10px; }
-    @media (max-width: 600px) {
-      nav a { display: block; margin: 10px 0; }
-      .image-gallery { flex-direction: column; align-items: center; }
+    * {
+      box-sizing: border-box;
     }
-    .whatsapp-button {
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header img {
+      max-height: 100px;
+    }
+    nav {
+      background-color: #005599;
+      text-align: center;
+      padding: 15px;
+    }
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .image-gallery img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+    }
+    .cta {
+      background-color: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .cta a {
+      background-color: white;
+      color: #0077cc;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #005599;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25d366;
+      background-color: #25D366;
       color: white;
       border-radius: 50%;
-      padding: 15px;
-      font-size: 24px;
-      text-decoration: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      z-index: 999;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 30px;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .whatsapp-float i {
+      margin-top: 15px;
+    }
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 8px 0;
+      }
+      .image-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <header>
-    <img src="Batam-samudera-pase/logo.png" alt="Logo Batam Samudera Pase" />
+    <img src="Batam-samudera-pase/logo.png" alt="Logo Perusahaan" />
     <h1>PT. Batam Samudera Pase</h1>
     <p>Solusi Jual Beli Scrap Terpercaya di Batam</p>
   </header>
@@ -52,9 +141,7 @@
 
   <section id="tentang">
     <h2>Tentang Kami</h2>
-    <p>
-      PT. Batam Samudera Pase adalah perusahaan yang bergerak di bidang jual beli scrap dengan wilayah operasional di Batam dan sekitarnya. Kami memiliki pengalaman, jaringan, dan sumber daya yang handal untuk memastikan proses pengumpulan, pemrosesan, dan distribusi scrap berjalan efisien dan sesuai standar.
-    </p>
+    <p>PT. Batam Samudera Pase adalah perusahaan yang bergerak di bidang jual beli scrap dengan wilayah operasional di Batam dan sekitarnya. Kami memiliki pengalaman, jaringan, dan sumber daya yang handal untuk memastikan proses pengumpulan, pemrosesan, dan distribusi scrap berjalan efisien dan sesuai standar.</p>
   </section>
 
   <section id="layanan">
@@ -70,9 +157,9 @@
   <section id="galeri">
     <h2>Galeri</h2>
     <div class="image-gallery">
-      <img src="Batam-samudera-pase/foto-logo.png" alt="Logo Perusahaan" />
-      <img src="Batam-samudera-pase/foto-seragam.png" alt="Seragam Karyawan" />
-      <img src="Batam-samudera-pase/foto-kajian.png" alt="Kegiatan Kajian" />
+      <img src="Batam-samudera-pase/foto-logo.png" alt="Logo Perusahaan">
+      <img src="Batam-samudera-pase/foto-seragam.png" alt="Seragam Karyawan">
+      <img src="Batam-samudera-pase/foto-kajian.png" alt="Kegiatan Kajian">
     </div>
   </section>
 
@@ -88,29 +175,18 @@
     <p>Telepon: <a href="tel:+628527474747474">0852-7474-7474</a></p>
     <p>Email: <a href="mailto:alamin.samudera@gmail.com">alamin.samudera@gmail.com</a></p>
 
-    <h3>Kirim Pesan</h3>
+    <!-- Form Kontak -->
     <form action="https://formspree.io/f/yourformid" method="POST">
-      <label>Nama:</label><br>
-      <input type="text" name="name" required style="width: 100%; padding: 10px;"><br><br>
-      <label>Email:</label><br>
-      <input type="email" name="email" required style="width: 100%; padding: 10px;"><br><br>
-      <label>Pesan:</label><br>
-      <textarea name="message" rows="5" required style="width: 100%; padding: 10px;"></textarea><br><br>
-      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none;">
-        Kirim
-      </button>
+      <input type="text" name="name" placeholder="Nama Anda" required>
+      <input type="email" name="email" placeholder="Email Anda" required>
+      <textarea name="message" rows="5" placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim Pesan</button>
     </form>
 
-    <h3>Lokasi Kami</h3>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0717407613914!2d104.112261!3d1.1218661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3df8e93de14f%3A0x25f7e55811f89f1d!2sKavling%20Nongsa%2C%20Sambau%2C%20Batam!5e0!3m2!1sid!2sid!4v1712746950000!5m2!1sid!2sid" 
-      width="100%" 
-      height="300" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <!-- Google Maps Embed -->
+    <br />
+    <h3>Lokasi Kami:</h3>
+    <iframe src="https://www.google.com/maps?q=0.9963651,104.1164119&hl=id&z=16&amp;output=embed" allowfullscreen></iframe>
   </section>
 
   <footer>
@@ -118,7 +194,9 @@
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/628527474747474" class="whatsapp-button" target="_blank" title="Hubungi kami via WhatsApp">💬</a>
+  <a class="whatsapp-float" href="https://wa.me/628527474747474" target="_blank" title="Hubungi via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
 </body>
 </html>
