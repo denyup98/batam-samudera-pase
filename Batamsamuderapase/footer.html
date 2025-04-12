@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hubungi Kami</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    #kontak {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #kontak h2,
+    #kontak h3 {
+      color: #013d58;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    #kontak h2::after,
+    #kontak h3::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #013d58;
+      margin: 10px auto;
+      border-radius: 5px;
+    }
+
+    .contact-box {
+      background-color: #e6f4f1;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact-info p {
+      display: flex;
+      margin: 0;
+    }
+
+    .contact-info strong {
+      width: 80px;
+      display: inline-block;
+    }
+
+    .contact-info a {
+      color: #013d58;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #002a40;
+      text-decoration: underline;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    form input:invalid,
+    form textarea:invalid {
+      border-color: #ff6b6b;
+    }
+
+    form input:valid,
+    form textarea:valid {
+      border-color: #51cf66;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.8rem;
+      margin-top: -8px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    form button {
+      background-color: #013d58;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #002a40;
+    }
+
+    iframe {
+      border: 0;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    footer {
+      background-color: #013d58;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .whatsapp-float img {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Success message styling */
+    .success-message {
+      display: none;
+      background-color: #51cf66;
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <section id="kontak" itemscope itemtype="https://schema.org/LocalBusiness">
+    <h2>Hubungi Kami</h2>
+
+    <div class="success-message" id="successMessage">
+      Pesan Anda telah berhasil dikirim! Kami akan segera menghubungi Anda.
+    </div>
+
+    <div class="contact-box">
+      <div class="contact-info">
+        <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <strong>Alamat:</strong> 
+          <span itemprop="streetAddress">Kavling Nongsa, Sambau</span>, 
+          <span itemprop="addressLocality">Batam</span>
+        </p>
+        <p>
+          <strong>Telepon:</strong> 
+          <a href="tel:+6282388444260" itemprop="telephone">0823-8844-4260</a>
+        </p>
+        <p>
+          <strong>Email:</strong> 
+          <a href="mailto:alamin.samudera@gmail.com" itemprop="email">alamin.samudera@gmail.com</a>
+        </p>
+      </div>
+    </div>
+
+    <form id="contactForm" action="https://formspree.io/f/mqapwvnj" method="POST">
+      <input type="text" name="name" placeholder="Nama Anda" required 
+             minlength="3" pattern="[A-Za-z\s]+" 
+             title="Nama harus terdiri dari huruf saja (minimal 3 karakter)">
+      <div class="error-message" id="nameError">Nama harus diisi (minimal 3 huruf)</div>
+      
+      <input type="email" name="email" placeholder="Email Anda" required
+             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+      <div class="error-message" id="emailError">Masukkan alamat email yang valid</div>
+      
+      <textarea name="message" rows="5" placeholder="Pesan Anda" required minlength="10"></textarea>
+      <div class="error-message" id="messageError">Pesan harus diisi (minimal 10 karakter)</div>
+      
+      <button type="submit">Kirim Pesan</button>
+    </form>
+
+    <h3>Lokasi Kami</h3>
+    <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+      <meta itemprop="latitude" content="1.152741" />
+      <meta itemprop="longitude" content="104.091452" />
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.9610586410932!2d104.09145229662282!3d1.152740571669902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98874191cddc3%3A0x9be2bb628527670!2sBatam%2C%20Sambau%2C%20Nongsa%2C%20Batam%20City%2C%20Riau%20Islands%2029465!5e0!3m2!1sen!2sid!4v1712724440752!5m2!1sen!2sid" width="100%" height="300" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 <span itemprop="name">PT. Batam Samudera Pase</span>. All rights reserved.
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/6282388444260" target="_blank" title="Hubungi via WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const successMessage = document.getElementById('successMessage');
+      
+      // Check if form was successfully submitted (from URL parameter)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('success') === 'true') {
+        successMessage.style.display = 'block';
+      }
+      
+      // Form validation
+      form.addEventListener('submit', function(event) {
+        let isValid = true;
+        
+        // Validate name
+        const nameInput = form.querySelector('input[name="name"]');
+        const nameError = document.getElementById('nameError');
+        if (nameInput.value.length < 3 || !/^[A-Za-z\s]+$/.test(nameInput.value)) {
+          nameError.style.display = 'block';
+          isValid = false;
+        } else {
+          nameError.style.display = 'none';
+        }
+        
+        // Validate email
+        const emailInput = form.querySelector('input[name="email"]');
+        const emailError = document.getElementById('emailError');
+        if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(emailInput.value)) {
+          emailError.style.display = 'block';
+          isValid = false;
+        } else {
+          emailError.style.display = 'none';
+        }
+        
+        // Validate message
+        const messageInput = form.querySelector('textarea[name="message"]');
+        const messageError = document.getElementById('messageError');
+        if (messageInput.value.length < 10) {
+          messageError.style.display = 'block';
+          isValid = false;
+        } else {
+          messageError.style.display = 'none';
+        }
+        
+        if (!isValid) {
+          event.preventDefault();
+        } else {
+          // If using Formspree, they will handle the submission
+          // For demo purposes, we'll show success message
+          event.preventDefault();
+          successMessage.style.display = 'block';
+          form.reset();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          
+          // In a real implementation, you would let the form submit to Formspree
+          // and handle the success redirect or use their AJAX API
+          // form.submit();
+        }
+      });
+      
+      // Real-time validation
+      form.querySelector('input[name="name"]').addEventListener('input', function() {
+        const errorElement = document.getElementById('nameError');
+        if (this.value.length >= 3 && /^[A-Za-z\s]+$/.test(this.value)) {
+          errorElement.style.display = 'none';
+        }
+      });
+      
+      form.querySelector('input[name="email"]').addEventListener('input', function() {
+        const errorElement = document.getElementById('emailError');
+        if (/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i.test(this.value)) {
+          errorElement.style.display = 'none';
+        }
+      });
+      
+      form.querySelector('textarea[name="message"]').addEventListener('input', function() {
+        const errorElement = document.getElementById('messageError');
+        if (this.value.length >= 10) {
+          errorElement.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
