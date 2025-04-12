@@ -1,202 +1,257 @@
-<!-- Header Responsive with Sticky, Logo Rounded, Tagline, Active Menu -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-<header class="navbar slide-down">
-  <div class="logo-container">
-    <img src="Batam-samudera-pase/logo.png" alt="Logo" />
-    <div class="brand-text">
-      <span class="brand-name">PT. Batam Samudera Pase</span>
-      <span class="tagline">Solusi Terpercaya Jual Beli Scrap</span>
-    </div>
-  </div>
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Beranda</a>
-      <a href="artikel.html">Artikel</a>
-      <a href="index.html#layanan">Layanan</a>
-      <a href="index.html#tentang">Tentang Kami</a>
-      <a href="#kontak">Kontak</a>
-    </div>
-  </nav>
-</header>
-
-<style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-  }
-
-  .navbar {
-    background: linear-gradient(90deg, #013d58, #026da6);
-    padding: 12px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .slide-down {
-    animation: slideDown 0.5s ease;
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Responsive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
 
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo-container img {
-    height: 50px;
-    border-radius: 12px;
-    background-color: white;
-    padding: 4px;
-  }
-
-  .brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-
-  .brand-name {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: white;
-  }
-
-  .tagline {
-    font-size: 0.8em;
-    color: #e0e0e0;
-    font-weight: 400;
-    margin-top: 0;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    position: relative;
-    transition: border-bottom 0.3s ease;
-  }
-
-  .nav-links a:hover {
-    border-bottom: 2px solid white;
-  }
-
-  .nav-links a.active {
-    border-bottom: 2px solid white;
-    font-weight: 600;
-  }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px;
-    transition: all 0.3s ease;
-  }
-
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      background-color: #013d58;
-      width: 100%;
-      flex-direction: column;
+    .navbar {
+      background: linear-gradient(90deg, #013d58, #026da6);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
     }
 
-    .nav-links.active {
+    .slide-down {
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .logo-container {
       display: flex;
-      animation: fadeSlideDown 0.3s ease forwards;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .brand-name {
-      font-size: 1em;
-    }
-
-    .tagline {
-      font-size: 0.7em;
+      align-items: center;
+      gap: 12px;
     }
 
     .logo-container img {
-      height: 40px;
+      height: 50px;
+      border-radius: 12px;
+      background-color: white;
+      padding: 4px;
     }
-  }
 
-  @keyframes fadeSlideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .brand-name {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: white;
     }
-  }
-</style>
 
-<script>
-  function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
-  }
+    .tagline {
+      font-size: 0.8em;
+      color: #e0e0e0;
+      font-weight: 400;
+      margin-top: 0;
+    }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // Tutup menu otomatis di mobile saat link diklik
-    const links = document.querySelectorAll('.nav-links a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
-      });
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
 
-      // Highlight otomatis sesuai halaman
-      const currentPage = window.location.pathname.split("/").pop();
-      const linkPage = link.getAttribute("href").split("#")[0];
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 5px 0;
+    }
 
-      if (linkPage === currentPage || (currentPage === "" && linkPage === "index.html")) {
-        link.classList.add("active");
+    .nav-links a:hover {
+      border-bottom: 2px solid white;
+    }
+
+    .nav-links a.active {
+      border-bottom: 2px solid white;
+      font-weight: 600;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px;
+      transition: all 0.3s ease;
+    }
+
+    /* Gaya untuk mobile */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 15px;
       }
+      
+      .nav-links {
+        display: flex;
+        overflow-x: auto;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        gap: 15px;
+        margin-top: 10px;
+      }
+      
+      .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+      
+      .nav-links a {
+        white-space: nowrap;
+        padding: 5px 10px;
+        font-size: 0.9em;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      
+      .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      
+      .hamburger {
+        display: none; /* Sembunyikan hamburger karena kita pakai scroll */
+      }
+      
+      .brand-name {
+        font-size: 1.1em;
+      }
+      
+      .tagline {
+        font-size: 0.75em;
+      }
+      
+      .logo-container img {
+        height: 40px;
+      }
+    }
+
+    /* Gaya untuk layar sangat kecil (opsional) */
+    @media (max-width: 480px) {
+      .nav-links {
+        gap: 10px;
+      }
+      
+      .nav-links a {
+        padding: 5px 8px;
+        font-size: 0.85em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar slide-down">
+    <div class="logo-container">
+      <img src="Batam-samudera-pase/logo.png" alt="Logo" />
+      <div class="brand-text">
+        <span class="brand-name">PT. Batam Samudera Pase</span>
+        <span class="tagline">Solusi Terpercaya Jual Beli Scrap</span>
+      </div>
+    </div>
+    <nav>
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="artikel.html">Artikel</a>
+        <a href="index.html#layanan">Layanan</a>
+        <a href="index.html#tentang">Tentang Kami</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.nav-links a');
+      
+      // Fungsi untuk menandai menu aktif
+      function setActiveLink() {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('section').forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionBottom = sectionTop + section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            const id = section.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href').includes(id)) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+      
+      // Event listener untuk scroll
+      window.addEventListener('scroll', setActiveLink);
+      
+      // Event listener untuk klik menu
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Untuk link yang mengarah ke bagian halaman
+          if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          }
+          
+          // Tandai menu yang aktif
+          navLinks.forEach(item => item.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
     });
-  });
-</script>
+  </script>
+</body>
+</html>
