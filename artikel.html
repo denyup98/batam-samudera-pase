@@ -3,24 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Artikel - Batam Samudera Pase</title>
+  <title>Jual Beli Scrap Metal Batam | PT Batam Samudera Pase | Harga Terbaik</title>
+  <meta name="description" content="Perusahaan jual beli scrap metal terpercaya di Batam. Beli besi bekas, aluminium, tembaga, kuningan & stainless steel dengan harga kompetitif. Layanan profesional untuk industri daur ulang.">
+  <meta name="keywords" content="jual scrap Batam, beli besi bekas, daur ulang logam, harga aluminium bekas, perusahaan scrap Batam, jual tembaga bekas, beli kuningan bekas, stainless steel scrap">
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f8f9fa;
+      line-height: 1.6;
+      color: #333;
     }
+    
     section {
       background-color: white;
-      padding: 60px 20px;
+      padding: 40px;
       max-width: 1000px;
-      margin: 20px auto;
+      margin: 30px auto;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: justify;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--secondary-color), var(--accent-color));
+    }
+    
+    h1, h2, h3 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+    
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+    
+    ul {
+      padding-left: 20px;
+    }
+    
+    li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+    
+    li::before {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--secondary-color);
+      position: absolute;
+      left: 0;
+    }
+    
+    .cta-box {
+      background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+      color: white;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent-color);
+    }
+    
+    .cta-button:hover {
+      background-color: transparent;
+      color: var(--accent-color);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    
+    .benefit-card {
+      background-color: var(--light-color);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      font-size: 40px;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+    }
+    
+    .material-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+    }
+    
+    .material-table th, .material-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .material-table th {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .material-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    .testimonial {
+      background-color: var(--light-color);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      position: relative;
+    }
+    
+    .testimonial::before {
+      content: "\f10d";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: rgba(0,0,0,0.1);
+      font-size: 60px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: right;
+      color: var(--secondary-color);
+    }
+    
+    @media (max-width: 768px) {
+      section {
+        padding: 30px 20px;
+        margin: 20px 10px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -29,41 +210,148 @@
   <div id="include-header"></div>
 
   <section>
-    <h2>Apa Itu Scrap?</h2>
-    <p>
-      Scrap adalah sisa material dari proses produksi atau barang bekas yang masih memiliki nilai ekonomi.
-      Contohnya seperti potongan logam, kabel, aluminium bekas, dan lainnya yang dapat dijual kembali
-      untuk didaur ulang atau digunakan dalam produksi lain.
-    </p>
-    <p>
-      Pengelolaan scrap yang baik membantu perusahaan mengurangi biaya bahan baku dan mendukung program keberlanjutan.
-    </p>
+    <h1>Jual Beli Scrap Metal di Batam - Solusi Daur Ulang Profesional</h1>
+    <p>PT Batam Samudera Pase merupakan perusahaan terpercaya dalam jual beli scrap metal di Batam. Kami menyediakan layanan profesional untuk industri daur ulang logam dengan harga kompetitif dan transaksi yang aman.</p>
+    
+    <div class="cta-box">
+      <h3>Butuh Menjual atau Membeli Scrap Metal di Batam?</h3>
+      <p>Kami membeli berbagai jenis logam bekas dengan harga terbaik di Batam. Hubungi kami sekarang untuk penawaran khusus!</p>
+      <a href="footer.html" class="cta-button">HUBUNGI KAMI SEKARANG</a>
+    </div>
   </section>
 
   <section>
-    <h2>Manfaat Jual Beli Scrap</h2>
-    <p>
-      Jual beli scrap memberikan banyak manfaat, baik dari sisi ekonomi maupun lingkungan.
-      Perusahaan dapat mengurangi limbah, mendapatkan tambahan penghasilan, dan ikut serta menjaga lingkungan.
-    </p>
-  </section>
-
-  <section>
-    <h2>Jenis-Jenis Scrap yang Dicari</h2>
+    <h2>Apa Itu Scrap Metal? Pengertian dan Potensi Bisnisnya</h2>
+    <p><strong>Scrap metal</strong> atau logam bekas adalah material sisa dari proses produksi atau barang bekas yang masih memiliki nilai ekonomi tinggi. Di Batam sebagai kawasan industri, scrap metal seperti besi tua, aluminium bekas, tembaga, dan stainless steel sangat dibutuhkan untuk proses daur ulang.</p>
+    
+    <p>Sebagai perusahaan scrap metal terkemuka di Batam, kami memahami bahwa pengelolaan scrap yang profesional dapat:</p>
     <ul>
-      <li>Scrap besi dan baja</li>
-      <li>Aluminium bekas</li>
-      <li>Tembaga dan kabel tembaga</li>
-      <li>Kuningan dan stainless steel</li>
+      <li>Mengurangi biaya produksi hingga 30%</li>
+      <li>Mendukung program sustainability perusahaan</li>
+      <li>Memberikan tambahan pendapatan dari penjualan limbah logam</li>
+      <li>Mengurangi dampak negatif terhadap lingkungan</li>
     </ul>
   </section>
 
   <section>
-    <h2>Peran Scrap dalam Industri Modern</h2>
-    <p>
-      Di era industri 4.0, penggunaan material hasil daur ulang menjadi standar baru.
-      Banyak produsen besar mengintegrasikan scrap dalam proses produksi mereka demi efisiensi dan keberlanjutan.
-    </p>
+    <h2>5 Keuntungan Jual Beli Scrap Metal dengan Kami di Batam</h2>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <h3>Harga Kompetitif</h3>
+        <p>Kami menawarkan harga scrap metal terbaik di Batam dengan sistem penimbangan yang akurat</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-truck"></i>
+        </div>
+        <h3>Layanan Pickup</h3>
+        <p>Untuk jumlah besar, kami menyediakan layanan pengangkutan scrap ke lokasi Anda di Batam</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Legalitas Jelas</h3>
+        <p>Transaksi aman dalam pengolahan scrap metal</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-recycle"></i>
+        </div>
+        <h3>Ramah Lingkungan</h3>
+        <p>Proses daur ulang sesuai standar lingkungan untuk mendukung ekonomi sirkular</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Proses Cepat</h3>
+        <p>Pembayaran langsung setelah transaksi tanpa proses berbelit-belit</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jenis Scrap Metal yang Kami Beli dengan Harga Terbaik</h2>
+    
+    <p>Sebagai pembeli scrap metal di Batam, kami menerima berbagai jenis logam bekas berikut:</p>
+    
+    <table class="material-table">
+      <thead>
+        <tr>
+          <th>Jenis Scrap</th>
+          <th>Contoh Barang</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Besi/Baja Tua</strong></td>
+          <td>Bekas konstruksi, rangka mesin, besi beton</td>
+        </tr>
+        <tr>
+          <td><strong>Aluminium</strong></td>
+          <td>Bingkai jendela, komponen otomotif, kaleng</td>
+        </tr>
+        <tr>
+          <td><strong>Tembaga</strong></td>
+          <td>Kabel listrik, pipa, komponen elektronik</td>
+        </tr>
+        <tr>
+          <td><strong>Kuningan</strong></td>
+          <td>Fitting pipa, perangkat keras, dekorasi</td>
+        </tr>
+        <tr>
+          <td><strong>Stainless Steel</strong></td>
+          <td>Peralatan dapur, peralatan medis, perabotan</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <p><strong>Catatan:</strong> Harga scrap metal di Batam bervariasi tergantung jenis, kualitas, dan kondisi material. Hubungi tim kami untuk informasi harga terupdate.</p>
+  </section>
+
+  <section>
+    <h2>Peran Scrap Metal dalam Industri Modern di Batam</h2>
+    <p>Sebagai kawasan industri strategis, Batam memiliki permintaan tinggi akan bahan baku logam. Scrap metal memainkan peran penting dalam:</p>
+    
+    <ul>
+      <li><strong>Industri Manufaktur:</strong> Bahan baku alternatif yang lebih ekonomis</li>
+      <li><strong>Konstruksi:</strong> Material daur ulang untuk proyek infrastruktur</li>
+      <li><strong>Ekonomi Sirkular:</strong> Mengurangi ketergantungan pada bahan baku virgin</li>
+      <li><strong>Pelestarian Lingkungan:</strong> Mengurangi limbah industri di Batam</li>
+    </ul>
+    
+    <p>PT Batam Samudera Pase berkomitmen menjadi mitra terpercaya dalam pengelolaan scrap metal untuk industri di Batam dan sekitarnya.</p>
+  </section>
+
+  <section>
+    <h2>Area Layanan Kami di Batam</h2>
+    <p>Kami melayani jual beli scrap metal di seluruh wilayah Batam dan sekitarnya, termasuk:</p>
+    
+    <ul>
+      <li>Batam Centre</li>
+      <li>Nagoya</li>
+      <li>Batu Ampar</li>
+      <li>Sekupang</li>
+      <li>Bengkong</li>
+      <li>Batu Aji</li>
+      <li>Tanjung Uncang</li>
+      <li>Dan daerah industri lainnya di Batam</li>
+    </ul>
+    
+    <div class="cta-box">
+      <h3>Siap Berbisnis Scrap Metal di Batam?</h3>
+      <p>Tim profesional kami siap membantu Anda dalam pengelolaan scrap metal dengan solusi terbaik. Dapatkan penawaran harga hari ini!</p>
+      <a href="footer.html" class="cta-button">REQUEST QUOTE SEKARANG</a>
+    </div>
   </section>
 
   <div id="include-footer"></div>
@@ -84,6 +372,8 @@
       const navLinks = document.getElementById("navLinks");
       navLinks.classList.toggle("active");
     }
+
+    src="js/main.js"
   </script>
 
 </body>
