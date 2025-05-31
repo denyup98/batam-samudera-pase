@@ -1,427 +1,23 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT. Batam Samudera Pase - Spesialis Pengelolaan Scrap</title>
-    <!-- Favicon untuk berbagai perangkat & browser -->
-<link rel="icon" type="image/x-icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
-<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+import { useEffect } from 'react';
 
-<!-- Font Awesome CDN untuk ikon -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary: #013d58;
-      --secondary: #e6f4f1;
-      --accent: #ff7f50;
-      --text: #333333;
-      --light: #ffffff;
-      --dark: #222222;
-    }
-    
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: var(--text);
-      line-height: 1.6;
-    }
-    
-    /* Section Styles */
-    p, li {
-  text-align: justify;
-}
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 30px auto;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-    
-    section h2 {
-      color: var(--primary);
-      text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.2rem;
-      position: relative;
-      padding-bottom: 15px;
-    }
-    
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background-color: var(--accent);
-      border-radius: 2px;
-    }
-    
-    section h3 {
-      color: var(--primary);
-      margin-top: 30px;
-      font-size: 1.5rem;
-    }
-    
-    /* About Section */
-    #tentang {
-      background-color: var(--secondary);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    #tentang::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      background-color: var(--accent);
-      opacity: 0.1;
-      border-radius: 50%;
-    }
-    
-    /* Visi Misi Section */
-    #visi-misi {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    
-    #visi-misi > div {
-      padding: 20px;
-      border-radius: 8px;
-    }
-    
-    #visi-misi > div:first-child {
-      background-color: rgba(1, 61, 88, 0.05);
-    }
-    
-    #visi-misi > div:last-child {
-      background-color: rgba(255, 127, 80, 0.05);
-    }
-    
-    /* Layanan Section */
-    #layanan ul {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 0;
-    }
-    
-    #layanan li {
-      background-color: var(--secondary);
-      padding: 20px;
-      border-radius: 8px;
-      list-style: none;
-      position: relative;
-      padding-left: 60px;
-      transition: transform 0.3s ease;
-    }
-    
-    #layanan li:hover {
-      transform: translateY(-5px);
-    }
-    
-    #layanan li::before {
-      content: '\f00c';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      position: absolute;
-      left: 20px;
-      top: 20px;
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-    
-    /* Gallery Section */
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    
-    .gallery-item {
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-      aspect-ratio: 4/3;
-    }
-    
-    .gallery-item:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .gallery-item:hover img {
-      transform: scale(1.1);
-    }
-    
-    .gallery-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      color: white;
-      padding: 20px;
-      transform: translateY(100%);
-      transition: transform 0.3s ease;
-    }
-    
-    .gallery-item:hover .gallery-caption {
-      transform: translateY(0);
-    }
-    
-    /* Stats Section */
-    .stats-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      text-align: center;
-      margin-top: 50px;
-    }
-    
-    .stat-item {
-      padding: 30px 20px;
-      background-color: var(--secondary);
-      border-radius: 10px;
-      transition: all 0.3s ease;
-    }
-    
-    .stat-item:hover {
-      background-color: var(--primary);
-      color: white;
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-    
-    .stat-item:hover .stat-number {
-      color: white;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      #visi-misi {
-        grid-template-columns: 1fr;
-      }
-      
-      section {
-        padding: 50px 20px;
-      }
-      
-      section h2 {
-        font-size: 1.8rem;
-      }
-    }
-    
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    section {
-      animation: fadeIn 0.8s ease-out;
-    }
-    
-    /* WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 100;
-      transition: all 0.3s ease;
-    }
-    
-    .whatsapp-float:hover {
-      background-color: #128C7E;
-      transform: scale(1.1);
-    }
-    
-    @media (max-width: 768px) {
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
-        bottom: 20px;
-        right: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div id="include-header"></div>
-  <section id="beranda">
-    <h2>Selamat Datang di PT. Batam Samudera Pase</h2>
-    <p>
-      Kami adalah perusahaan pengelolaan scrap metal di Batam. Dengan komitmen terhadap kualitas dan keberlanjutan, kami menyediakan solusi terbaik untuk kebutuhan jual beli scrap Anda.
-    </p>
-  </section>
-
-  <section id="tentang">
-    <h2>Tentang Kami</h2>
-    <p>
-      <strong>PT. Batam Samudera Pase</strong> adalah perusahaan terdepan dalam industri pengelolaan dan perdagangan scrap metal di wilayah Batam dan sekitarnya. 
-      Dengan pengalaman lebih dari 10 tahun di bidang ini, kami telah membangun reputasi sebagai mitra yang dapat diandalkan 
-      untuk kebutuhan pengelolaan limbah logam industri.
-    </p>
-    <p>
-      Kami menyediakan solusi komprehensif mulai dari pengumpulan, pemilahan, pemrosesan, hingga distribusi berbagai jenis scrap metal 
-      seperti besi, baja, aluminium, tembaga, dan logam lainnya. Tim profesional kami siap memberikan layanan terbaik dengan 
-      standar keamanan dan lingkungan yang ketat.
-    </p>
-    
-    <div class="stats-container">
-      <div class="stat-item">
-        <div class="stat-number">10+</div>
-        <div>Tahun Pengalaman</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="visi-misi">
-    <div>
-      <h2>Visi & Misi</h2>
-      <h3>Visi Kami</h3>
-      <p>
-        Menjadi perusahaan pengelolaan scrap terkemuka di Indonesia yang dikenal akan profesionalisme, 
-        keandalan, dan komitmen terhadap keberlanjutan lingkungan.
-      </p>
-    </div>
-    <div>
-      <h3>Misi Kami</h3>
-      <ul>
-        <li>Menyediakan layanan pengelolaan scrap yang efisien dan ramah lingkungan</li>
-        <li>Mengoptimalkan nilai ekonomi dari material bekas untuk semua pihak</li>
-        <li>Menerapkan praktik bisnis yang berkelanjutan dan bertanggung jawab</li>
-        <li>Membangun kemitraan jangka panjang berbasis kepercayaan dan transparansi</li>
-        <li>Berkontribusi pada ekonomi sirkular melalui daur ulang material</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="layanan">
-    <h2>Layanan Kami</h2>
-    <p>
-      Kami menawarkan berbagai layanan komprehensif untuk memenuhi semua kebutuhan pengelolaan scrap Anda:
-    </p>
-    <ul>
-      <li>
-        <strong>Pembelian Scrap</strong> - Kami membeli berbagai jenis scrap logam dengan harga kompetitif, 
-        termasuk besi, baja, aluminium, tembaga, stainless steel, dan logam lainnya.
-      </li>
-      <li>
-        <strong>Pengangkutan Scrap</strong> - Layanan pengangkutan profesional dengan armada lengkap untuk 
-        semua jenis material, dilengkapi peralatan berat jika diperlukan.
-      </li>
-      <li>
-        <strong>Pemrosesan Scrap</strong> - Pemilahan, pemotongan, dan pemrosesan material untuk 
-        meningkatkan nilai jual dan memenuhi spesifikasi industri.
-      </li>
-      <li>
-        <strong>Layanan Penjemputan</strong> - Tim kami siap menjemput scrap Anda di lokasi 
-        dengan jadwal yang fleksibel sesuai kebutuhan Anda.
-      </li>
-    </ul>
-  </section>
-
-  <section id="galeri">
-    <h2>Galeri Kami</h2>
-    <p>Berikut beberapa dokumentasi kegiatan dan fasilitas kami:</p>
-    <div class="image-gallery">
-      <div class="gallery-item">
-        <img src="Batam-samudera-pase/foto-logo.png" alt="Logo Perusahaan">
-        <div class="gallery-caption">Logo Resmi Perusahaan</div>
-      </div>
-      <div class="gallery-item">
-        <img src="Batam-samudera-pase/foto-seragam.png" alt="Seragam Karyawan">
-        <div class="gallery-caption">Tim Profesional Kami</div>
-      </div>
-    </div>
-  </section>
-
-  <div id="include-footer"></div>
-
-  <a class="whatsapp-float" href="https://wa.me/6282388444260" target="_blank" title="Hubungi via WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    function loadComponent(id, file) {
-      fetch(file)
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-          // Inisialisasi menu aktif setelah header dimuat
-          if (id === "include-header") {
-            setupActiveMenu();
-          }
-        })
-        .catch(error => console.error('Error loading component:', error));
-    }
-
-    // Muat komponen header dan footer
-    loadComponent("include-header", "header.html");
-    loadComponent("include-footer", "footer.html");
-
-    // Fungsi untuk mengatur menu aktif
-    function setupActiveMenu() {
+export default function App() {
+  useEffect(() => {
+    const setupActiveMenu = () => {
       const navLinks = document.querySelectorAll('nav a');
       const sections = document.querySelectorAll('section');
-      
-      // Fungsi untuk mengupdate menu aktif
-      function updateActiveMenu() {
-        let currentSectionId = '';
-        const scrollPosition = window.scrollY + 150; // Offset untuk akurasi
 
-        // Cek section mana yang sedang aktif
+      const updateActiveMenu = () => {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 150;
+
         sections.forEach(section => {
           const sectionTop = section.offsetTop;
           const sectionHeight = section.offsetHeight;
-          
           if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             currentSectionId = section.id;
           }
         });
 
-        // Update class active pada nav links
         navLinks.forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('href') === `#${currentSectionId}`) {
@@ -429,16 +25,14 @@
           }
         });
 
-        // Default active untuk bagian atas halaman
         if (scrollPosition < 100 && navLinks.length > 0) {
           navLinks.forEach(link => link.classList.remove('active'));
           navLinks[0].classList.add('active');
         }
-      }
+      };
 
-      // Smooth scrolling untuk semua anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute('href'));
           if (target) {
@@ -450,16 +44,150 @@
         });
       });
 
-      // Event listener untuk scroll dengan debounce
       let isScrolling;
-      window.addEventListener('scroll', function() {
-        window.clearTimeout(isScrolling);
+      window.addEventListener('scroll', () => {
+        clearTimeout(isScrolling);
         isScrolling = setTimeout(updateActiveMenu, 100);
-      }, false);
-      
-      // Panggil sekali saat inisialisasi
+      });
+
       updateActiveMenu();
-    }
-  </script>
-</body>
-</html>
+    };
+
+    setupActiveMenu();
+  }, []);
+
+  return (
+    <div className="font-sans text-gray-800 bg-gray-100">
+      {/* Header */}
+      <header className="bg-white shadow-md sticky top-0 z-50">
+        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-xl font-bold text-teal-900">PT. Batam Samudera Pase</h1>
+          <ul className="flex space-x-6 text-sm md:text-base">
+            <li><a href="#beranda" className="text-teal-700 hover:text-orange-500 active">Beranda</a></li>
+            <li><a href="#tentang" className="text-teal-700 hover:text-orange-500">Tentang</a></li>
+            <li><a href="#visi-misi" className="text-teal-700 hover:text-orange-500">Visi & Misi</a></li>
+            <li><a href="#layanan" className="text-teal-700 hover:text-orange-500">Layanan</a></li>
+            <li><a href="#galeri" className="text-teal-700 hover:text-orange-500">Galeri</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Beranda Section */}
+      <section id="beranda" className="py-20 px-6 bg-gradient-to-r from-blue-50 to-teal-50 text-center max-w-4xl mx-auto animate-fadeIn">
+        <h2 className="text-3xl md:text-4xl font-bold text-teal-900 mb-6 relative inline-block">
+          Selamat Datang di PT. Batam Samudera Pase
+          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-orange-500 rounded-full"></span>
+        </h2>
+        <p className="text-lg text-gray-700">
+          Kami adalah perusahaan pengelolaan scrap metal di Batam. Dengan komitmen terhadap kualitas dan keberlanjutan, kami menyediakan solusi terbaik untuk kebutuhan jual beli scrap Anda.
+        </p>
+      </section>
+
+      {/* Tentang Section */}
+      <section id="tentang" className="py-20 px-6 bg-teal-50 relative overflow-hidden animate-fadeIn">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-teal-900 mb-8 relative inline-block">
+            Tentang Kami
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-orange-500 rounded-full"></span>
+          </h2>
+          <p className="mb-6 text-gray-700 leading-relaxed">
+            <strong>PT. Batam Samudera Pase</strong> adalah perusahaan terdepan dalam industri pengelolaan dan perdagangan scrap metal di wilayah Batam dan sekitarnya. 
+            Dengan pengalaman lebih dari 10 tahun di bidang ini, kami telah membangun reputasi sebagai mitra yang dapat diandalkan 
+            untuk kebutuhan pengelolaan limbah logam industri.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Kami menyediakan solusi komprehensif mulai dari pengumpulan, pemilahan, pemrosesan, hingga distribusi berbagai jenis scrap metal 
+            seperti besi, baja, aluminium, tembaga, dan logam lainnya. Tim profesional kami siap memberikan layanan terbaik dengan 
+            standar keamanan dan lingkungan yang ketat.
+          </p>
+          <div className="stats-container mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="stat-item p-6 bg-teal-100 rounded-xl text-center transition-transform duration-300 hover:bg-teal-800 hover:text-white">
+              <div className="stat-number text-4xl text-orange-500">10+</div>
+              <div>Tahun Pengalaman</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visi & Misi Section */}
+      <section id="visi-misi" className="py-20 px-6 bg-white animate-fadeIn">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+          <div className="bg-teal-50 p-6 rounded-lg">
+            <h2 className="text-2xl font-bold text-teal-900 mb-4">Visi & Misi</h2>
+            <h3 className="text-xl text-teal-800 font-semibold mb-3">Visi Kami</h3>
+            <p className="text-gray-700">
+              Menjadi perusahaan pengelolaan scrap terkemuka di Indonesia yang dikenal akan profesionalisme, keandalan, dan komitmen terhadap keberlanjutan lingkungan.
+            </p>
+          </div>
+          <div className="bg-orange-50 p-6 rounded-lg">
+            <h3 className="text-xl text-teal-800 font-semibold mb-3">Misi Kami</h3>
+            <ul className="space-y-2 text-gray-700 list-disc pl-5">
+              <li>Menyediakan layanan pengelolaan scrap yang efisien dan ramah lingkungan</li>
+              <li>Mengoptimalkan nilai ekonomi dari material bekas untuk semua pihak</li>
+              <li>Menerapkan praktik bisnis yang berkelanjutan dan bertanggung jawab</li>
+              <li>Membangun kemitraan jangka panjang berbasis kepercayaan dan transparansi</li>
+              <li>Berkontribusi pada ekonomi sirkular melalui daur ulang material</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Layanan Section */}
+      <section id="layanan" className="py-20 px-6 bg-gray-50 animate-fadeIn">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-teal-900 mb-8">Layanan Kami</h2>
+          <p className="text-gray-700 mb-6 text-center">Kami menawarkan berbagai layanan komprehensif untuk memenuhi semua kebutuhan pengelolaan scrap Anda:</p>
+          <ul className="space-y-6">
+            <li className="bg-teal-100 p-5 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+              <strong className="text-teal-800">Pembelian Scrap</strong> - Kami membeli berbagai jenis scrap logam dengan harga kompetitif, termasuk besi, baja, aluminium, tembaga, stainless steel, dan logam lainnya.
+            </li>
+            <li className="bg-teal-100 p-5 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+              <strong className="text-teal-800">Pengangkutan Scrap</strong> - Layanan pengangkutan profesional dengan armada lengkap untuk semua jenis material, dilengkapi peralatan berat jika diperlukan.
+            </li>
+            <li className="bg-teal-100 p-5 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+              <strong className="text-teal-800">Pemrosesan Scrap</strong> - Pemilahan, pemotongan, dan pemrosesan material untuk meningkatkan nilai jual dan memenuhi spesifikasi industri.
+            </li>
+            <li className="bg-teal-100 p-5 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
+              <strong className="text-teal-800">Layanan Penjemputan</strong> - Tim kami siap menjemput scrap Anda di lokasi dengan jadwal yang fleksibel sesuai kebutuhan Anda.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Galeri Section */}
+      <section id="galeri" className="py-20 px-6 bg-white animate-fadeIn">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-teal-900 mb-6">Galeri Kami</h2>
+          <p className="text-center text-gray-600 mb-8">Berikut beberapa dokumentasi kegiatan dan fasilitas kami:</p>
+          <div className="image-gallery grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="gallery-item overflow-hidden rounded-xl shadow-lg group">
+              <img src="https://placehold.co/600x450?text=Logo+Perusahaan" alt="Logo Perusahaan" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="gallery-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-5 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                Logo Resmi Perusahaan
+              </div>
+            </div>
+            <div className="gallery-item overflow-hidden rounded-xl shadow-lg group">
+              <img src="https://placehold.co/600x450?text=Tim+Profesional" alt="Seragam Karyawan" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="gallery-caption absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-5 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                Tim Profesional Kami
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/6282388444260"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 z-50"
+        title="Hubungi via WhatsApp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16l-4-4 1.414-1.414 2.586 2.586 5.586-5.586 1.414 1.414-7 7z"/>
+        </svg>
+      </a>
+    </div>
+  );
+}
